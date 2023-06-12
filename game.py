@@ -40,7 +40,8 @@ class Game(Serializable):
 		self.crusade_deck = Deck([])
 		self.development_deck = Deck([
 			Development("innovation", "Navy", None),
-			Development("councilor", "Court Physician", None)
+			Development("councilor", "Court Physician", None),
+			Development("councilor", "Chancellor", None),
 		])
 		self.developments = []
 
@@ -222,6 +223,10 @@ class Character(Serializable):
 		"red": {
 			"male": ["Gartrade"],
 			"female": ["Gertrid"],
+		},
+		"blue": {
+			"male": ["Gertrudo"],
+			"female": ["Gertruda"],
 		}
 	}
 
@@ -278,6 +283,17 @@ def first_crusade(game):
 			"gold": 5,
 			"developments": ["Navy"],
 		},
+		"blue": {
+			"ruler": {
+				"gender": "male",
+				"name": "Philippe I the Amorous",
+				"traits": ["Attractive", "Humble", "Gluttonous", "Lustful"],
+			},
+			"regions": ["The Low Countries", "Lorraine", "Paris", "Aquitaine", "Toulouse"],
+			"castles": ["Paris"],
+			"gold": 7,
+			"developments": ["Chancellor"],
+		},
 		"black": {
 			"ruler": {
 				"gender": "male",
@@ -287,7 +303,7 @@ def first_crusade(game):
 			"regions": ["Saxony", "Pomerania", "Poland", "Bohemia"],
 			"gold": 5,
 			"developments": ["Court Physician"],
-			"castles": ["Saxony"], # TODO this is for testing, should be []
+			"castles": [],
 		},
 	})
 
@@ -303,6 +319,6 @@ def default(obj):
 
 if __name__ == '__main__':
 	import json
-	game = Game({"red": "ai", "black": "human"}, first_crusade)
+	game = Game({"red": "ai", "blue": "human", "black": "human"}, first_crusade)
 	data = game.encode()
 	print(json.dumps(data, default=default))

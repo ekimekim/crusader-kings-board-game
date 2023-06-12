@@ -2,11 +2,11 @@
   "cultures": {
     "Al-Andalus": "yellow",
     "Apulia": "green",
-    "Aquitane": "blue",
+    "Aquitaine": "blue",
     "Aragon": "yellow",
     "Bohemia": "black",
     "Brittany": "blue",
-    "Burgandy": "blue",
+    "Burgundy": "blue",
     "Castile": "yellow",
     "Dalmatia": "black",
     "Hungary": "black",
@@ -28,7 +28,7 @@
     "Scotland": "red",
     "Sicily": "green",
     "Swabia": "black",
-    "The Low Coutries": "blue",
+    "The Low Countries": "blue",
     "Toulouse": "blue",
     "Venice": "green",
     "Wales": "red",
@@ -69,7 +69,7 @@
     ],
     [
       "Aquitaine",
-      "Burgandy"
+      "Burgundy"
     ],
     [
       "Aquitaine",
@@ -128,23 +128,23 @@
       "Wessex"
     ],
     [
-      "Burgandy",
+      "Burgundy",
       "Lombardy"
     ],
     [
-      "Burgandy",
+      "Burgundy",
       "Lorraine"
     ],
     [
-      "Burgandy",
+      "Burgundy",
       "Paris"
     ],
     [
-      "Burgandy",
+      "Burgundy",
       "Swabia"
     ],
     [
-      "Burgandy",
+      "Burgundy",
       "Toulouse"
     ],
     [
