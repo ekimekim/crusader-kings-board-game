@@ -14,18 +14,7 @@ class Serializable:
 
 
 class Game(Serializable):
-	REGION_CULTURES = {
-		"Hungary": "black",
-		"Saxony": "black",
-	}
-
-	REGION_EDGES = [
-		("Hungary", "Saxony"),
-	]
-
-	SEAS = {
-		"Test Sea": ("Hungary", "Saxony"),
-	}
+	MAP_DATA_FILE = "./map.json"
 
 	SERIALIZED_FIELDS = [
 		"realm_deck",
@@ -59,14 +48,16 @@ class Game(Serializable):
 		]
 
 		self.map = {}
-		for name, culture in self.REGION_CULTURES.items():
+		with open(self.MAP_DATA_FILE) as f:
+			map_data = json.load(f)
+		for name, culture in map_data["cultures"].items():
 			if culture not in players:
 				continue
 			edges = (
-				set(a for a, b in self.REGION_EDGES if b == name)
-				| set(b for a, b in self.REGION_EDGES if a == name)
+				set(a for a, b in map_data["edges"] if b == name)
+				| set(b for a, b in map_data["edges"] if a == name)
 			)
-			seas = set(sea for sea, regions in self.SEAS.items() if name in regions)
+			seas = set(sea for sea, regions in map_data["seas"].items() if name in regions)
 			self.map[name] = Region(name, culture, edges, seas)
 
 		self.players = {
