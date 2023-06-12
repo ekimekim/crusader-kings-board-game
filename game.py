@@ -39,6 +39,7 @@ class Game(Serializable):
 		self.tax_deck = Deck([])
 		self.crusade_deck = Deck([])
 		self.development_deck = Deck([
+			Development("innovation", "Navy", None),
 			Development("councilor", "Court Physician", None)
 		])
 		self.developments = []
@@ -210,9 +211,18 @@ class Character(Serializable):
 	]
 
 	CULTURE_NAMES = {
-		"black": [
-			"Gertrude",
-		],
+		"black": {
+			"male": [
+				"Gertrude",
+			],
+			"female": [
+				"Gertrude",
+			],
+		},
+		"red": {
+			"male": ["Gartrade"],
+			"female": ["Gertrid"],
+		}
 	}
 
 	RANDOM_TRAITS = [
@@ -228,9 +238,10 @@ class Character(Serializable):
 
 	@classmethod
 	def generate(cls, culture):
+		gender = random.choice(["male", "female"])
 		return Character(
-			gender = random.choice(["male", "female"]),
-			name = random.choice(cls.CULTURE_NAMES[culture]),
+			gender = gender,
+			name = random.choice(cls.CULTURE_NAMES[culture][gender]),
 			traits = random.choice(cls.RANDOM_TRAITS),
 		)
 
@@ -246,6 +257,8 @@ def generic_setup(game, data):
 			card = game.development_deck.must_find(name=development)
 			player.add_development(card)
 		for name in player_data["regions"]:
+			if name not in game.map:
+				continue
 			region = game.map[name]
 			region.owner = color
 			if name in player_data["castles"]:
@@ -274,7 +287,7 @@ def first_crusade(game):
 			"regions": ["Saxony", "Pomerania", "Poland", "Bohemia"],
 			"gold": 5,
 			"developments": ["Court Physician"],
-			"castles": [],
+			"castles": ["Saxony"], # TODO this is for testing, should be []
 		},
 	})
 
@@ -290,6 +303,6 @@ def default(obj):
 
 if __name__ == '__main__':
 	import json
-	game = Game({"black": "human"}, first_crusade)
+	game = Game({"red": "ai", "black": "human"}, first_crusade)
 	data = game.encode()
 	print(json.dumps(data, default=default))
