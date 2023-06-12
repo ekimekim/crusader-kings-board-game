@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MainRegionColors
   m_EditorClassIdentifier: 
   Data:
-  - Name: The Low Counties
+  - Name: The Low Countries
     Color:
       serializedVersion: 2
       rgba: 4294910374
@@ -33,7 +33,7 @@ MonoBehaviour:
     Color:
       serializedVersion: 2
       rgba: 16758754
-  - Name: Aquitine
+  - Name: Aquitaine
     Color:
       serializedVersion: 2
       rgba: 16748182

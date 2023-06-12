@@ -10,21 +10,21 @@ public class Region : MonoBehaviour
 {
     public Color32 Color;
 
-    public void InitRegion(string name, Color32 color, Texture2D regionsMap, Material regionMaterial)
+    public void InitRegion(RegionData data, Color32 serializeColor, Texture2D regionsMap, Material regionMaterial)
     {
-        this.name = name;
-        this.Color = color;
+        this.name = data.name;
+        this.Color = serializeColor;
 
         Vector3? castlePos = null;
         Vector3? knightPos = null;
         var regionMesh = GenerateMesh(regionsMap, out castlePos, out knightPos);
 
-        if(castlePos.HasValue)
+        if(castlePos.HasValue && data.castle)
         {
             var castleInst = GameController.Instantiate(GameController.Instance.CastlePrefab, this.transform);
             castleInst.transform.position = castlePos.Value;
         }
-        if(knightPos.HasValue)
+        if(knightPos.HasValue && data.mobilized)
         {
             var knightInst = GameController.Instantiate(GameController.Instance.KnightPrefab, this.transform);
             knightInst.transform.position = knightPos.Value;
@@ -38,7 +38,7 @@ public class Region : MonoBehaviour
 
         var renderer = GetComponent<Renderer>();
         renderer.sharedMaterial = new Material(regionMaterial);
-        renderer.sharedMaterial.color = color;
+        renderer.sharedMaterial.color = serializeColor;
     }
 
     static bool IsSameColor(Color32 color, Color32 regionCol)
@@ -55,8 +55,6 @@ public class Region : MonoBehaviour
 
         var pixels = regionsMap.GetPixels(0, 0, regionsMap.width, regionsMap.height);
 
-        Debug.Log($"Color pixel look for {this.Color.r},{this.Color.g},{this.Color.b} for {this.gameObject.name}");
-
         var verts = new List<Vector3>();
         var tris = new List<int>();
 
@@ -64,6 +62,8 @@ public class Region : MonoBehaviour
         {
             for (int z = 0; z < regionsMap.height; z++)
             {
+                var origin3d = new Vector3(z, 0, x);
+
                 var pixel = GetPixel(pixels, x, z, regionsMap.width);
                 var isRegionPixel = IsSameColor(pixel, this.Color);
                 var isCastlePixel = IsSameColor(pixel, (Color32)UnityEngine.Color.white);
@@ -71,24 +71,25 @@ public class Region : MonoBehaviour
 
                 if (isCastlePixel && x > 0 && IsSameColor(GetPixel(pixels, x - 1, z, regionsMap.width), this.Color))
                 {
-                    castlePos = new Vector3(x + 0.5f, 0f, z + 0.5f);
+                    castlePos = origin3d + new Vector3( 0.5f, 0f,0.5f);
                     isRegionPixel = true;
                 }
 
                 if (isKnightPixel && x > 0 && IsSameColor(GetPixel(pixels, x - 1, z, regionsMap.width), this.Color))
                 {
-                    knightPos = new Vector3(x + 0.5f, 0f, z + 0.5f);
+                    knightPos = origin3d + new Vector3(0.5f, 0f, 0.5f);
                     isRegionPixel = true;
                 }
 
                 if (!isRegionPixel)
                     continue;
 
+
                 var quadStartIndex = verts.Count;
-                verts.Add(new Vector3(x, 0, z));
-                verts.Add(new Vector3(x + 1, 0, z));
-                verts.Add(new Vector3(x, 0, z + 1));
-                verts.Add(new Vector3(x + 1, 0, z + 1));
+                verts.Add(origin3d + new Vector3(0, 0, 0));
+                verts.Add(origin3d + new Vector3(1, 0, 0));
+                verts.Add(origin3d + new Vector3(0, 0, 1));
+                verts.Add(origin3d + new Vector3(1, 0, 1));
 
                 tris.Add(quadStartIndex + 1);
                 tris.Add(quadStartIndex + 0);

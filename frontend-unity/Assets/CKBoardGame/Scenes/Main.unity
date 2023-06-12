@@ -172,6 +172,7 @@ MonoBehaviour:
   RegionMaterial: {fileID: 2100000, guid: 4e3c85d013ca13944a1367d09b4f8cc3, type: 2}
   CastlePrefab: {fileID: 4851391469860950269, guid: 806b3768c31736c49a5d65a4dd2672c4, type: 3}
   KnightPrefab: {fileID: 6329075807913240675, guid: 0d35270ca9eca7040bbffb42f5202159, type: 3}
+  GameStateSample: {fileID: 4900000, guid: 710b32ebf07afb2419245898c287d4e7, type: 3}
 --- !u!1 &937863185
 GameObject:
   m_ObjectHideFlags: 0
