@@ -1,48 +1,38 @@
 {
   "cultures": {
-    "red": [
-      "Ireland",
-      "Scotland",
-      "Northumbria",
-      "Mercia",
-      "Wales",
-      "Wessex"
-    ],
-    "blue": [
-      "Brittany",
-      "Normandy",
-      "The Low Coutries",
-      "Aquitane",
-      "Paris",
-      "Lorraine",
-      "Burgandy",
-      "Toulouse"
-    ],
-    "yellow": [
-      "Leon",
-      "Navarra",
-      "Aragon",
-      "Castile",
-      "Portugal",
-      "Al-Andalus"
-    ],
-    "green": [
-      "Lombardy",
-      "Venice",
-      "Papal States",
-      "Sardina",
-      "Sicily",
-      "Apulia"
-    ],
-    "black": [
-      "Saxony",
-      "Pomerania",
-      "Poland",
-      "Bohemia",
-      "Swabia",
-      "Hungary",
-      "Dalmatia"
-    ]
+    "Al-Andalus": "yellow",
+    "Apulia": "green",
+    "Aquitane": "blue",
+    "Aragon": "yellow",
+    "Bohemia": "black",
+    "Brittany": "blue",
+    "Burgandy": "blue",
+    "Castile": "yellow",
+    "Dalmatia": "black",
+    "Hungary": "black",
+    "Ireland": "red",
+    "Leon": "yellow",
+    "Lombardy": "green",
+    "Lorraine": "blue",
+    "Mercia": "red",
+    "Navarra": "yellow",
+    "Normandy": "blue",
+    "Northumbria": "red",
+    "Papal States": "green",
+    "Paris": "blue",
+    "Poland": "black",
+    "Pomerania": "black",
+    "Portugal": "yellow",
+    "Sardina": "green",
+    "Saxony": "black",
+    "Scotland": "red",
+    "Sicily": "green",
+    "Swabia": "black",
+    "The Low Coutries": "blue",
+    "Toulouse": "blue",
+    "Venice": "green",
+    "Wales": "red",
+    "Wessex": "red"
   },
   "edges": [
     [
@@ -319,13 +309,6 @@
     ]
   ],
   "seas": {
-    "North Sea": [
-      "Scotland",
-      "Northumbria",
-      "Mercia",
-      "Normandy",
-      "The Low Countries"
-    ],
     "Atlantic Ocean": [
       "Scotland",
       "Ireland",
@@ -352,6 +335,13 @@
       "Apulia",
       "Venice",
       "Dalmatia"
+    ],
+    "North Sea": [
+      "Scotland",
+      "Northumbria",
+      "Mercia",
+      "Normandy",
+      "The Low Countries"
     ]
   }
 }
