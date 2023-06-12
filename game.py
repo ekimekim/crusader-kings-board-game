@@ -246,9 +246,6 @@ def generic_setup(game, data):
 			card = game.development_deck.must_find(name=development)
 			player.add_development(card)
 		for name in player_data["regions"]:
-			# remove once all regions are implemented
-			if name not in game.map:
-				game.map[name] = Region(name, color, [], ["Test Sea"])
 			region = game.map[name]
 			region.owner = color
 			if name in player_data["castles"]:
