@@ -1,0 +1,43 @@
+State
+	Action decks
+		Realm, Intrigue, War, Tax, Crusade
+	3x Development cards
+	Development deck
+	General trait bag
+	Crusade Track
+		Each Position
+			Owner (player | none)
+			Trait (to be given to first owner)
+			Bonus
+	Map
+		Territory edges.
+		Seas (groups of bordering territories)
+		Each Territory
+			Culture
+			Ownership: Player | Pact with player | Neutral with character
+			Castle: bool
+			Mobilized: bool
+			Duke: char reference
+			Tokens: Harvest, Plague, Unrest
+	Players
+		Diplomacy
+			each pair of players has one of these states:
+				War
+				Pact
+				None
+				Casus Belli (one way)
+				Casus Belli (other way)
+				Casis Belli (both ways)
+		Gold
+		Trait Bag
+		3x Innovation
+		3x Councilor
+		Ruler: Character with spouse, without traits
+		Siblings: 2x Character with spouse
+		Children: 3x Character with spouse
+		Each Character:
+			Gender
+			Number (for events)
+			Name
+			if char with traits: list of traits
+			if char with spouse: Spouse: Character | none
