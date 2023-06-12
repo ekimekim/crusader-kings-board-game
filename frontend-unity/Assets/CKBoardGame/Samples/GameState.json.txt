@@ -1,0 +1,93 @@
+{
+  "realm_deck": {
+    "items": [],
+    "discards": []
+  },
+  "intrigue_deck": {
+    "items": [],
+    "discards": []
+  },
+  "war_deck": {
+    "items": [],
+    "discards": []
+  },
+  "tax_deck": {
+    "items": [],
+    "discards": []
+  },
+  "crusade_deck": {
+    "items": [],
+    "discards": []
+  },
+  "development_deck": {
+    "items": [],
+    "discards": []
+  },
+  "developments": [],
+  "crusades": [
+    {
+      "name": "Constantinople",
+      "owner": null,
+      "trait": "Ignorant",
+      "bonus": null
+    }
+  ],
+  "map": {
+    "Hungary": {
+      "name": "Hungary",
+      "culture": "black",
+      "edges": [
+        "Saxony"
+      ],
+      "seas": [
+        "Test Sea"
+      ],
+      "owner": {
+        "gender": "female",
+        "name": "Gertrude",
+        "id": 31,
+        "traits": "Ignorant",
+        "spouse": null
+      },
+      "castle": false,
+      "mobilized": false,
+      "duke": null,
+      "tokens": []
+    },
+    "Saxony": {
+      "name": "Saxony",
+      "culture": "black",
+      "edges": [
+        "Hungary"
+      ],
+      "seas": [
+        "Test Sea"
+      ],
+      "owner": {
+        "gender": "female",
+        "name": "Gertrude",
+        "id": 44,
+        "traits": "Ignorant",
+        "spouse": null
+      },
+      "castle": false,
+      "mobilized": false,
+      "duke": null,
+      "tokens": []
+    }
+  },
+  "players": {
+    "black": {
+      "color": "black",
+      "kind": "human",
+      "gold": 0,
+      "traits": [],
+      "hand": [],
+      "innovations": [],
+      "councilors": [],
+      "ruler": null,
+      "siblings": [],
+      "children": []
+    }
+  }
+}
