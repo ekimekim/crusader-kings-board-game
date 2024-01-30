@@ -4,27 +4,36 @@ namespace CKBlazor.CK
 {
     public class GameService
     {
-        public int FrameId;
+        public int FrameId { get; private set; }
+        public float Elapsed { get; private set; }
+
         bool _hasStarted;
-        private IJSRuntime _jsRuntime;
+        DateTime _startAt;
+        IJSRuntime _jsRuntime;
 
         public GameService(IJSRuntime jsRuntime)
         {
             _jsRuntime = jsRuntime;
-            Start();
+            
+            Init();
+        }
+
+        async void Init()
+        {
+            await _jsRuntime.InvokeVoidAsync("window.game_service.init", DotNetObjectReference.Create(this));
+         
+            _hasStarted = true;
+            _startAt = DateTime.Now;
+            await _jsRuntime.InvokeVoidAsync("window.game_service.start");
         }
 
 
-        void Start()
+        [JSInvokable]
+        public void Update()
         {
-            //if (_hasStarted)
-            //    return;
-            Console.WriteLine("started");
-
-            //_jsRuntime.InvokeVoidAsync("alert", "test");
-
-            UpdateDomFromJs();
-
+            FrameId++;
+            Elapsed = (float)(DateTime.Now - _startAt).TotalSeconds;
+            Console.WriteLine($"GameService.Update {FrameId} {Elapsed}");
         }
 
         public async Task<string> InvokeJsFunction()
