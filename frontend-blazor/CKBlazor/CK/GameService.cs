@@ -7,6 +7,7 @@ namespace CKBlazor.CK
         public int FrameId { get; private set; }
         public float Elapsed { get; private set; }
 
+        bool _hasInit;
         bool _hasStarted;
         DateTime _startAt;
         IJSRuntime _jsRuntime;
@@ -14,7 +15,13 @@ namespace CKBlazor.CK
         public GameService(IJSRuntime jsRuntime)
         {
             _jsRuntime = jsRuntime;
-            
+        }
+
+        public void TryInit()
+        {
+            if (_hasInit)
+                return;
+            _hasInit = true;
             Init();
         }
 
@@ -24,7 +31,8 @@ namespace CKBlazor.CK
          
             _hasStarted = true;
             _startAt = DateTime.Now;
-            await _jsRuntime.InvokeVoidAsync("window.game_service.start");
+            //Console.WriteLine($"GameService.try invoke start");
+            //await _jsRuntime.InvokeVoidAsync("window.game_service.start");
         }
 
 
@@ -36,16 +44,16 @@ namespace CKBlazor.CK
             Console.WriteLine($"GameService.Update {FrameId} {Elapsed}");
         }
 
-        public async Task<string> InvokeJsFunction()
-        {
-            // Example of calling a JavaScript function from C#
-            return await _jsRuntime.InvokeAsync<string>("exampleJsFunction");
-        }
+        //public async Task<string> InvokeJsFunction()
+        //{
+        //    // Example of calling a JavaScript function from C#
+        //    return await _jsRuntime.InvokeAsync<string>("exampleJsFunction");
+        //}
 
-        public async Task UpdateDomFromJs()
-        {
-            // Example of manipulating the DOM from C#
-            await _jsRuntime.InvokeVoidAsync("window.game_service.test");
-        }
+        //public async Task UpdateDomFromJs()
+        //{
+        //    // Example of manipulating the DOM from C#
+        //    await _jsRuntime.InvokeVoidAsync("window.game_service.test");
+        //}
     }
 }

@@ -1,10 +1,25 @@
-﻿<h3>GameView</h3>
-
-@using CKBlazor.CK
+﻿@using CKBlazor.CK
 @inject GameService gameService
+@using Microsoft.JSInterop
 
-<p>@gameService.FrameId</p>
+<h3>GameView</h3>
+
+<div id="game-view-container"></div>
 
 @code {
-   
+    [Inject]
+    private IJSRuntime JSRuntime { get; set; }
+    [Inject]
+    private GameService GameService { get; set; }
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Console.WriteLine($"OnAfterRender, firstRender:{firstRender}, JSRuntime is " + (JSRuntime != null ? "not null" : "null"));
+        GameService.TryInit();
+        if (firstRender)
+        {
+            // Execute JavaScript code after the component has rendered
+            JSRuntime.InvokeVoidAsync("game_service.init_new_renderer", "game-view-container");
+        }
+    }
 }
