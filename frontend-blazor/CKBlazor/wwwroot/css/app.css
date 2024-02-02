@@ -101,3 +101,14 @@ a, .btn-link {
 code {
     color: #c02d76;
 }
+
+.game-hud {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 1vh;
+}
+
+canvas {
+    z-index: -1 !important;
+}

@@ -1,0 +1,437 @@
+﻿{
+  "players": [
+    {
+      "user": {
+        "name": "Alfred",
+        "guid": "662adc23-a094-4d59-9dbe-2e9c686bbf04"
+      },
+      "color": "#5DA4FF",
+      "hasCrusaded": false,
+      "hand": [
+        { "type": "crusade" },
+        { "type": "tax" }
+      ],
+      "tech": [
+      ],
+      "traits": [
+        "cruel",
+        "kind"
+      ],
+      "ruler": {
+        "gender": 1,
+        "number": 1002,
+        "name": "Charlemagne",
+        "spouse": {
+          "gender": 0,
+          "number": 1001,
+          "name": "Desiderata"
+        }
+      },
+      "siblings": [
+        {
+          "gender": 1,
+          "name": "Karlmann",
+          "number": 1003,
+          "spouse": null,
+          "traits": [
+            "sneaky"
+          ]
+
+        }
+      ],
+      "children": [
+
+      ]
+    },
+    {
+      "user": {
+        "name": "Isabella",
+        "Guid": "dc0ffe23-4c2d-42e5-8470-6addd53b9a6f"
+      },
+      "color": "#96F792",
+      "hasCrusaded": false,
+      "hand": [
+        { "type": "crusade" },
+        { "type": "tax" }
+      ],
+      "tech": [
+      ],
+      "traits": [
+        "savage",
+        "kind"
+      ],
+      "ruler": {
+        "gender": 1,
+        "number": 1002,
+        "name": "Charlemagne",
+        "spouse": {
+          "gender": 0,
+          "number": 1001,
+          "name": "Desiderata"
+        }
+      },
+      "siblings": [
+        {
+          "gender": 1,
+          "name": "Karlmann",
+          "number": 1003,
+          "spouse": null,
+          "traits": [
+            "sneaky"
+          ]
+
+        }
+      ],
+      "children": [
+
+      ]
+    }
+  ],
+  "map": {
+    "cultures": {
+      "Al-Andalus": "yellow",
+      "Apulia": "green",
+      "Aquitaine": "blue",
+      "Aragon": "yellow",
+      "Bohemia": "black",
+      "Brittany": "blue",
+      "Burgundy": "blue",
+      "Castile": "yellow",
+      "Dalmatia": "black",
+      "Hungary": "black",
+      "Ireland": "red",
+      "Leon": "yellow",
+      "Lombardy": "green",
+      "Lorraine": "blue",
+      "Mercia": "red",
+      "Navarra": "yellow",
+      "Normandy": "blue",
+      "Northumbria": "red",
+      "Papal States": "green",
+      "Paris": "blue",
+      "Poland": "black",
+      "Pomerania": "black",
+      "Portugal": "yellow",
+      "Sardina": "green",
+      "Saxony": "black",
+      "Scotland": "red",
+      "Sicily": "green",
+      "Swabia": "black",
+      "The Low Countries": "blue",
+      "Toulouse": "blue",
+      "Venice": "green",
+      "Wales": "red",
+      "Wessex": "red"
+    },
+    "edges": [
+      [
+        "Al-Andalus",
+        "Aragon"
+      ],
+      [
+        "Al-Andalus",
+        "Castile"
+      ],
+      [
+        "Al-Andalus",
+        "Portugal"
+      ],
+      [
+        "Apulia",
+        "Dalmatia"
+      ],
+      [
+        "Apulia",
+        "Papal States"
+      ],
+      [
+        "Apulia",
+        "Sicily"
+      ],
+      [
+        "Aquitaine",
+        "Aragon"
+      ],
+      [
+        "Aquitaine",
+        "Brittany"
+      ],
+      [
+        "Aquitaine",
+        "Burgundy"
+      ],
+      [
+        "Aquitaine",
+        "Navarra"
+      ],
+      [
+        "Aquitaine",
+        "Normandy"
+      ],
+      [
+        "Aquitaine",
+        "Paris"
+      ],
+      [
+        "Aquitaine",
+        "Toulouse"
+      ],
+      [
+        "Aragon",
+        "Castile"
+      ],
+      [
+        "Aragon",
+        "Navarra"
+      ],
+      [
+        "Aragon",
+        "Sardinia"
+      ],
+      [
+        "Aragon",
+        "Toulouse"
+      ],
+      [
+        "Bohemia",
+        "Hungary"
+      ],
+      [
+        "Bohemia",
+        "Poland"
+      ],
+      [
+        "Bohemia",
+        "Saxony"
+      ],
+      [
+        "Bohemia",
+        "Swabia"
+      ],
+      [
+        "Brittany",
+        "Normandy"
+      ],
+      [
+        "Brittany",
+        "Wessex"
+      ],
+      [
+        "Burgundy",
+        "Lombardy"
+      ],
+      [
+        "Burgundy",
+        "Lorraine"
+      ],
+      [
+        "Burgundy",
+        "Paris"
+      ],
+      [
+        "Burgundy",
+        "Swabia"
+      ],
+      [
+        "Burgundy",
+        "Toulouse"
+      ],
+      [
+        "Castile",
+        "Leon"
+      ],
+      [
+        "Castile",
+        "Navarra"
+      ],
+      [
+        "Castile",
+        "Portugal"
+      ],
+      [
+        "Dalmatia",
+        "Hungary"
+      ],
+      [
+        "Denmark",
+        "Saxony"
+      ],
+      [
+        "Hungary",
+        "Poland"
+      ],
+      [
+        "Hungary",
+        "Swabia"
+      ],
+      [
+        "Hungary",
+        "Venice"
+      ],
+      [
+        "Ireland",
+        "Scotland"
+      ],
+      [
+        "Ireland",
+        "Wales"
+      ],
+      [
+        "Leon",
+        "Navarra"
+      ],
+      [
+        "Leon",
+        "Portugal"
+      ],
+      [
+        "Lombardy",
+        "Papal States"
+      ],
+      [
+        "Lombardy",
+        "Swabia"
+      ],
+      [
+        "Lombardy",
+        "Toulouse"
+      ],
+      [
+        "Lombardy",
+        "Venice"
+      ],
+      [
+        "Lorraine",
+        "Paris"
+      ],
+      [
+        "Lorraine",
+        "Saxony"
+      ],
+      [
+        "Lorraine",
+        "Swabia"
+      ],
+      [
+        "Lorraine",
+        "The Low Countries"
+      ],
+      [
+        "Mercia",
+        "Normandy"
+      ],
+      [
+        "Mercia",
+        "Northumbria"
+      ],
+      [
+        "Mercia",
+        "Wales"
+      ],
+      [
+        "Mercia",
+        "Wessex"
+      ],
+      [
+        "Normandy",
+        "Paris"
+      ],
+      [
+        "Normandy",
+        "The Low Countries"
+      ],
+      [
+        "Normandy",
+        "Wessex"
+      ],
+      [
+        "Northumbria",
+        "Scotland"
+      ],
+      [
+        "Papal States",
+        "Sardinia"
+      ],
+      [
+        "Papal States",
+        "Venice"
+      ],
+      [
+        "Paris",
+        "The Low Countries"
+      ],
+      [
+        "Poland",
+        "Pomerania"
+      ],
+      [
+        "Poland",
+        "Saxony"
+      ],
+      [
+        "Pomerania",
+        "Saxony"
+      ],
+      [
+        "Sardinia",
+        "Sicily"
+      ],
+      [
+        "Sardinia",
+        "Toulouse"
+      ],
+      [
+        "Saxony",
+        "Swabia"
+      ],
+      [
+        "Saxony",
+        "The Low Countries"
+      ],
+      [
+        "Swabia",
+        "Venice"
+      ],
+      [
+        "Wales",
+        "Wessex"
+      ]
+    ],
+    "seas": {
+      "Atlantic Ocean": [
+        "Scotland",
+        "Ireland",
+        "Northumbria",
+        "Wales",
+        "Mercia",
+        "Wessex",
+        "Normandy",
+        "Brittany",
+        "Aquitaine",
+        "Navarra",
+        "Leon",
+        "Portugal",
+        "Al-Andalus"
+      ],
+      "Mediterranean Sea": [
+        "Al-Andalus",
+        "Aragon",
+        "Toulouse",
+        "Lombardy",
+        "Papal States",
+        "Sardinia",
+        "Sicily",
+        "Apulia",
+        "Venice",
+        "Dalmatia"
+      ],
+      "North Sea": [
+        "Scotland",
+        "Northumbria",
+        "Mercia",
+        "Normandy",
+        "The Low Countries"
+      ]
+    }
+  }
+}

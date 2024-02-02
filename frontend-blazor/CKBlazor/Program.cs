@@ -1,5 +1,6 @@
 using CKBlazor;
 using CKBlazor.CK;
+using CKBlazor.Services;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,5 +12,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 builder.Services.AddScoped<GameService>();
+builder.Services.AddSingleton<TimerService>();
+
 
 await builder.Build().RunAsync();

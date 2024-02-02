@@ -1,59 +1,79 @@
-﻿using Microsoft.JSInterop;
+﻿using System.Net.Http.Json;
+using System.Text.Json.Serialization;
+using CKBlazor.CK.Data;
 
 namespace CKBlazor.CK
 {
     public class GameService
     {
-        public int FrameId { get; private set; }
-        public float Elapsed { get; private set; }
+        private readonly HttpClient _httpClient;
 
-        bool _hasInit;
-        bool _hasStarted;
-        DateTime _startAt;
-        IJSRuntime _jsRuntime;
+        public GameState? LastGameState { get; private set; }
+        public DateTime? LastGameStateAt { get; private set; }
+        public string? GameId { get; private set; }
+        public string? ClientGuid { get; private set; }
 
-        public GameService(IJSRuntime jsRuntime)
+
+        public GameService(HttpClient httpClient)
         {
-            _jsRuntime = jsRuntime;
+            _httpClient = httpClient;
         }
 
-        public void TryInit()
+        public async Task<GameState> JoinGameAsync(string gameId, string clientGuid)
         {
-            if (_hasInit)
-                return;
-            _hasInit = true;
-            Init();
+            try
+            {
+                var response = await _httpClient.GetAsync($"sample-data/game-state.json");
+                //var response = await _httpClient.PostAsJsonAsync($"games/{gameId}/players?p={ClientGuid}", clientGuid);
+                response.EnsureSuccessStatusCode();
+                
+               // var text = await response.Content.ReadAsStringAsync();
+                //Console.WriteLine("Response:\n" + System.Text.Json.JsonSerializer.Serialize(LastGameState));
+
+
+                var parsed = await response.Content.ReadFromJsonAsync<GameState>();
+               // var parsed = System.Text.Json.JsonSerializer.Deserialize<GameState>(text);
+                if (parsed == null)
+                    throw new Exception("failed to parse response");
+
+                GameId = gameId;
+                ClientGuid = clientGuid;
+                LastGameState = parsed;
+                LastGameStateAt = DateTime.Now;
+
+                Console.WriteLine("LastGameState:\n" + System.Text.Json.JsonSerializer.Serialize(LastGameState));
+
+                return LastGameState;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("JoinGameAsync error, " + ex);
+                return LastGameState;
+            }
         }
 
-        async void Init()
+        public async Task<GameState> GetGameState()
         {
-            await _jsRuntime.InvokeVoidAsync("window.game_service.init", DotNetObjectReference.Create(this));
-         
-            _hasStarted = true;
-            _startAt = DateTime.Now;
-            //Console.WriteLine($"GameService.try invoke start");
-            //await _jsRuntime.InvokeVoidAsync("window.game_service.start");
+            try
+            {
+                var response = await _httpClient.GetAsync($"sample-data/game-state.json");
+                response.EnsureSuccessStatusCode();
+                var parsed = await response.Content.ReadFromJsonAsync<GameState>();
+                if (parsed == null)
+                    throw new Exception("failed to parse response");
+
+                LastGameState = parsed;
+                LastGameStateAt = DateTime.Now;
+
+                Console.WriteLine("LastGameState: " + System.Text.Json.JsonSerializer.Serialize(LastGameState));
+
+                return LastGameState;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("GetGameState error, " + ex);
+                return LastGameState;
+            }
         }
-
-
-        [JSInvokable]
-        public void Update()
-        {
-            FrameId++;
-            Elapsed = (float)(DateTime.Now - _startAt).TotalSeconds;
-            Console.WriteLine($"GameService.Update {FrameId} {Elapsed}");
-        }
-
-        //public async Task<string> InvokeJsFunction()
-        //{
-        //    // Example of calling a JavaScript function from C#
-        //    return await _jsRuntime.InvokeAsync<string>("exampleJsFunction");
-        //}
-
-        //public async Task UpdateDomFromJs()
-        //{
-        //    // Example of manipulating the DOM from C#
-        //    await _jsRuntime.InvokeVoidAsync("window.game_service.test");
-        //}
     }
 }

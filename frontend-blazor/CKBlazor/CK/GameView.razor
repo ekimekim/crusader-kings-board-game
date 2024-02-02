@@ -1,25 +1,46 @@
 ﻿@using CKBlazor.CK
-@inject GameService gameService
+@using CKBlazor.CK.Data
 @using Microsoft.JSInterop
-
-<h3>GameView</h3>
-
-<div id="game-view-container"></div>
+@inject GameService GameService
+@inject Services.TimerService TimerService
 
 @code {
-    [Inject]
-    private IJSRuntime JSRuntime { get; set; }
-    [Inject]
-    private GameService GameService { get; set; }
+    private GameState GameState;
 
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnInitializedAsync()
     {
-        Console.WriteLine($"OnAfterRender, firstRender:{firstRender}, JSRuntime is " + (JSRuntime != null ? "not null" : "null"));
-        GameService.TryInit();
-        if (firstRender)
+        GameState = await GameService.JoinGameAsync("your_game_id", "your_client_guid");
+        TimerService.OnTimerElapsed += async () => 
         {
-            // Execute JavaScript code after the component has rendered
-            JSRuntime.InvokeVoidAsync("game_service.init_new_renderer", "game-view-container");
-        }
+            GameState = await GameService.GetGameState(); 
+        };
     }
 }
+
+
+@if (GameState != null)
+{
+    <a-scene>
+        @for(var i = 0; i < GameState.players.Length; i++)
+        {
+            <a-box position="@((i * 2) - 1) 0.5 -3" rotation="0 45 0" color="@GameState.players[i].color"></a-box>
+        }
+        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+        <a-sky color="#ECECEC"></a-sky>
+    </a-scene>
+
+    <div class="game-hud">
+        @foreach (var player in GameState.players)
+        {
+            <div style="background-color:@player.color;">
+                <h3>@player.user.name</h3>
+
+            </div>
+        }
+    </div>
+}
+else
+{
+    <h3>Loading</h3>
+}
+
