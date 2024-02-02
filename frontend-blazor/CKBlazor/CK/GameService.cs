@@ -6,13 +6,18 @@ namespace CKBlazor.CK
 {
     public class GameService
     {
-        private readonly HttpClient _httpClient;
+        // Assets
+        public Dictionary<string, Vector3>? TerritoryPositions { get; private set; }
 
-        public GameState? LastGameState { get; private set; }
-        public DateTime? LastGameStateAt { get; private set; }
+        // Session State
         public string? GameId { get; private set; }
         public string? ClientGuid { get; private set; }
 
+        // Game State
+        public GameState? LastGameState { get; private set; }
+        public DateTime? LastGameStateAt { get; private set; }
+
+        private readonly HttpClient _httpClient;
 
         public GameService(HttpClient httpClient)
         {
@@ -26,13 +31,8 @@ namespace CKBlazor.CK
                 var response = await _httpClient.GetAsync($"sample-data/game-state.json");
                 //var response = await _httpClient.PostAsJsonAsync($"games/{gameId}/players?p={ClientGuid}", clientGuid);
                 response.EnsureSuccessStatusCode();
-                
-               // var text = await response.Content.ReadAsStringAsync();
-                //Console.WriteLine("Response:\n" + System.Text.Json.JsonSerializer.Serialize(LastGameState));
-
 
                 var parsed = await response.Content.ReadFromJsonAsync<GameState>();
-               // var parsed = System.Text.Json.JsonSerializer.Deserialize<GameState>(text);
                 if (parsed == null)
                     throw new Exception("failed to parse response");
 
@@ -74,6 +74,18 @@ namespace CKBlazor.CK
                 Console.WriteLine("GetGameState error, " + ex);
                 return LastGameState;
             }
+        }
+
+        public async Task InitAssets()
+        {
+            var response = await _httpClient.GetAsync($"assets/territories/positions.json");
+            response.EnsureSuccessStatusCode();
+
+            var parsed = await response.Content.ReadFromJsonAsync<Dictionary<string, Vector3>>();
+            if (parsed == null)
+                throw new Exception("failed to parse response");
+
+            TerritoryPositions = parsed;
         }
     }
 }

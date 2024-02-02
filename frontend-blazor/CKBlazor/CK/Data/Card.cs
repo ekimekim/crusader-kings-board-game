@@ -6,3 +6,4 @@ namespace CKBlazor.CK.Data
         public required string type { get; set; }
     }
 }
+#pragma warning restore IDE1006 // Naming Styles

@@ -5,10 +5,11 @@
 @inject Services.TimerService TimerService
 
 @code {
-    private GameState GameState;
+    private GameState? GameState;
 
     protected override async Task OnInitializedAsync()
     {
+        await GameService.InitAssets();
         GameState = await GameService.JoinGameAsync("your_game_id", "your_client_guid");
         TimerService.OnTimerElapsed += async () => 
         {
@@ -18,13 +19,16 @@
 }
 
 
-@if (GameState != null)
+@if (GameService.TerritoryPositions != null && GameState != null)
 {
-    <a-assets>
-        <a-asset-item id="board" src="assets/board.glb"></a-asset-item>
-    </a-assets>
-
     <a-scene>
+        <a-assets>
+            <a-asset-item id="board" src="assets/board.glb"></a-asset-item>
+            @foreach (var (territoryId, position) in GameService.TerritoryPositions)
+            {
+                <a-asset-item id="@(territoryId)-model" src="assets/territories/@(territoryId).glb"></a-asset-item>
+            }
+        </a-assets>
         <a-entity gltf-model="#board"></a-entity>
         <a-sky color="#ECECEC"></a-sky>
         <a-camera look-controls wasd-controls></a-camera>
@@ -32,6 +36,12 @@
         @for(var i = 0; i < GameState.players.Length; i++)
         {
             <a-box position="@((i * 2) - 1) 0.5 -3" rotation="0 45 0" color="@GameState.players[i].color"></a-box>
+        }
+
+        @foreach (var (territoryId, position) in GameService.TerritoryPositions)
+        {
+            <a-entity id="@territoryId" gltf-model="#@(territoryId)-model" position="0 0 0"></a-entity>
+            <a-box id="@(territoryId)-castle" position="@position.ToAFramePosition()"></a-box>
         }
     </a-scene>
 
