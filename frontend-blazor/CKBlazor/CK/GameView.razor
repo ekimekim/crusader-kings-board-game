@@ -20,13 +20,19 @@
 
 @if (GameState != null)
 {
+    <a-assets>
+        <a-asset-item id="board" src="assets/board.glb"></a-asset-item>
+    </a-assets>
+
     <a-scene>
+        <a-entity gltf-model="#board"></a-entity>
+        <a-sky color="#ECECEC"></a-sky>
+        <a-camera look-controls wasd-controls></a-camera>
+
         @for(var i = 0; i < GameState.players.Length; i++)
         {
             <a-box position="@((i * 2) - 1) 0.5 -3" rotation="0 45 0" color="@GameState.players[i].color"></a-box>
         }
-        <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-        <a-sky color="#ECECEC"></a-sky>
     </a-scene>
 
     <div class="game-hud">
@@ -37,7 +43,7 @@
 
             </div>
         }
-    </div>
+    </div> 
 }
 else
 {
