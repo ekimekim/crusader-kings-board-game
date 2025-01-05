@@ -1,0 +1,36 @@
+﻿@using global::BlazeCanvas
+@using global::BlazeCanvas.Components
+@inject IJSRuntime JS
+
+<h3>BlazeCanvasComponent</h3>
+
+<canvas id="@($"{UniqueId}-canvas")"></canvas>
+
+@code {
+
+    [Parameter, EditorRequired]
+    public string UniqueId { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Console.WriteLine("Load Start");
+        await Task.Delay(2000);
+
+        var session = await Session.CreateSession(JS, UniqueId, $"{UniqueId}-canvas");
+
+        await Task.Delay(1000);
+
+        await session.Start();
+
+        Console.WriteLine("Load Finish");
+
+        var lightEntity = await Entity.CreateEntity(session);
+        var light = await Component.CreateComponent<LightComponent>(lightEntity, LightComponent.GetLightArgs());
+
+        var boxEntity = await Entity.CreateEntity(session);
+        var boxModel = await Component.CreateComponent<ModelComponent>(boxEntity, ModelComponent.GetBoxArgs());
+
+        await session.StartRotating(boxEntity);
+
+    }
+}
