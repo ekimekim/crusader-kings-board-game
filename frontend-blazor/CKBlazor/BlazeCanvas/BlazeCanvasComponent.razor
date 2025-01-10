@@ -30,7 +30,13 @@
         var boxEntity = await Entity.CreateEntity(session);
         var boxModel = await Component.CreateComponent<ModelComponent>(boxEntity, ModelComponent.GetBoxArgs());
 
+        var mapAsset = await Asset.LoadAsset(session, Asset.AssetType.container, "assets/board.glb");
+
+        var mapEntity = await Entity.CreateEntity(session);
+        var mapModel = await Component.CreateComponent<ModelComponent>(mapEntity, ModelComponent.GetAssetArgs(mapAsset));
+
         await session.StartRotating(boxEntity);
+        await session.StartRotating(mapEntity);
 
     }
 }

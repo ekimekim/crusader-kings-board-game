@@ -6,11 +6,7 @@
         public static object GetLightArgs() => new
         {
             type = "directional",
-            color = new
-            {
-                _type = "pc.Color",
-                _args = new object[] { 1, 1, 1 },
-            },
+            color = PCTypes.NewColor(1, 1, 1),
             intensity = 1
         };
     }

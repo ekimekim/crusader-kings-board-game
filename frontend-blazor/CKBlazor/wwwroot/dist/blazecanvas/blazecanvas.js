@@ -38,9 +38,10 @@
 
     // Called by BlazeCanvasComponent
     BC.createComponent = (entityId, componentId, componentType, args) => {
-        args = BC.instanceArgsObjectsRecursive(args);
 
         const entity = window.BC.entities[entityId];
+
+        args = BC.instanceArgsObjectsRecursive(entity._session, args);
 
         const component = entity.addComponent(componentType, args)
         BC.components[componentId] = component;
@@ -49,6 +50,36 @@
         component._session = entity._session;
 
         console.log("started createComponent", componentId);
+    };
+
+    // Called by BlazeCanvasComponent
+    BC.loadAssetAsync = async (sessionId, assetId, assetType, file) => {
+        console.log("loadAssetAsync started", assetId, assetType, file);
+        const session = window.BC.sessions[sessionId];
+
+        file = BC.instanceArgsObjectsRecursive(session, file);
+
+        let errorResult = null;
+        let loadedAsset = null;
+        try {
+            let loadPromise = new Promise((resolve, reject) => {
+                var asset = new pc.Asset(assetId, assetType, file);
+                session.app.assets.add(asset);
+                asset.ready((a) => {
+                    resolve(asset);
+                });
+                session.app.assets.load(asset);
+            });
+            loadedAsset = await loadPromise;
+
+            console.log("loadAssetAsync success:", loadedAsset, assetId, assetType, file);
+        }
+        catch (error) {
+            errorResult = JSON.stringify(error);
+            console.log("loadAssetAsync error:", error, loadedAsset, assetId, assetType, file);
+        }
+
+        return errorResult;
     };
 
     // Called by BlazeCanvasComponent
@@ -69,14 +100,17 @@
     BC.invokeComponentMethod2 = (entityId, method, arg0, arg1) => window.BC.components[entityId][method](arg0, arg1);
     BC.invokeComponentMethod3 = (entityId, method, arg0, arg1, arg2) => window.BC.components[entityId][method](arg0, arg1, arg2);
 
-    BC.instanceArgsObjectsArray = function (argsArray) {
-        for (var i = 0; i < args.length; i++) {
-            argsArray[i] = BC.instanceArgsObjectsRecursive(argsArray[i]);
-        }
-        return argsArray;
-    }
+    BC.allowedMethods = [
+        "app.assets.find"
+    ];
 
-    BC.instanceArgsObjectsRecursive = function (args) {
+    BC.allowedConstructors = [
+        "pc.Color"
+    ];
+
+    BC.allowedMethodsConstructorsCheck = false;
+
+    BC.instanceArgsObjectsRecursive = function (session, args, key) {
 
         const argsIsObj = (typeof args === 'object' && args !== null && !Array.isArray(args));
 
@@ -84,24 +118,55 @@
             return args;
         }
 
-        // Instance special type
-        if (args["_type"]) {
+        if (args["_asset"]) {
+            var assetName = args["_asset"];
+            var asset = session.app.assets.find(assetName);
 
-            // parse types
-            var typeParts = args["_type"].split(".");
-            let typeConstructor = window;
-            for (const part of typeParts) {
-                typeConstructor = typeConstructor[part];
+            if (asset.resource && asset.resource.model) {
+                asset = asset.resource.model;
             }
 
-            // construct using args
-            var typeArgs = args["_args"];
-            if (typeArgs) {
-                const instance = new typeConstructor(...typeArgs);
-                return instance;
+            return asset;
+        }
+
+        // Call _method args
+        if (args["_method"]) {
+            if (!BC.allowedMethodsConstructorsCheck || BC.allowedMethods.includes(args["_method"])) {
+
+                // parse types
+                let method = BC.navigateToBulletSeperatedChildObject(session, args["_method"]);
+
+                // construct using args
+                var typeArgs = args["_args"];
+                if (typeArgs) {
+                    const instance = method(...typeArgs);
+                    return instance;
+                } else {
+                    const instance = method();
+                    return instance;
+                }
             } else {
-                const instance = new typeConstructor();
-                return instance;
+                console.error("_method not allowed:", args["_method"]);
+            }
+        }
+
+        // Instantiate _type args
+        if (args["_type"]) {
+            if (!BC.allowedMethodsConstructorsCheck || BC.allowedTypes.includes(args["_type"])) {
+                // parse types
+                let typeConstructor = BC.navigateToBulletSeperatedChildObject(session, args["_type"]);
+
+                // construct using args
+                var typeArgs = args["_args"];
+                if (typeArgs) {
+                    const instance = new typeConstructor(...typeArgs);
+                    return instance;
+                } else {
+                    const instance = new typeConstructor();
+                    return instance;
+                }
+            } else {
+                console.error("_type not allowed:", args["_type"]);
             }
         }
 
@@ -112,7 +177,7 @@
             const valIsObj = (typeof val === 'object' && val !== null && !Array.isArray(val));
 
             if (valIsObj) {
-                val = BC.instanceArgsObjectsRecursive(val);
+                val = BC.instanceArgsObjectsRecursive(session, val, key);
             }
 
             argsFixed[key] = val;
@@ -171,6 +236,33 @@
         invokeCSMethod(methodName) {
             this.csRef.invokeMethodAsync(methodName);
         }
+    }
+
+    BC.navigateToBulletSeperatedChildObject = function (session, fullPath) {
+        var parts = fullPath.split(".");
+        let childObj = null;
+        for (const part of parts) {
+            if (childObj == null) {
+                // Root object
+                if (part == "app") {
+                    childObj = session.app;
+                }
+                else if (part == "pc") {
+                    childObj = window.pc;
+                } else {
+                    console.error("navigateToBulletSeperatedChildObject root obj not found:", fullPath);
+                }
+            }
+            else {
+                // Navigate down
+                childObj = childObj[part];
+            }
+        }
+        if (childObj == null) {
+            console.error("childObj not found:", fullPath);
+        }
+
+        return childObj;
     }
 
     return BC;
