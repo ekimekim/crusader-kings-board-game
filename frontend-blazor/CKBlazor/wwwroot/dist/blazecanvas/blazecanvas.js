@@ -6,17 +6,20 @@
     BC.sessions = {};
     BC.entities = {};
     BC.components = {};
+    BC.scriptInitializers = [];
 
     // Called by BlazeCanvasComponent
     BC.createSession = (sessionId, csRef) => {
+        console.log("createSession", sessionId);
+
         const session = new BC.Session(sessionId, csRef);
         BC.sessions[sessionId] = session;
-
-        console.log("started createSession", sessionId);
     };
 
     // Called by BlazeCanvasComponent
     BC.createEntity = (sessionId, entityId, parentId) => {
+        console.log("createEntity", sessionId, entityId, parentId);
+
         const session = window.BC.sessions[sessionId];
         const entity = new pc.Entity({ name: entityId });
 
@@ -31,13 +34,11 @@
         }
 
         BC.entities[entityId] = entity;
-
-
-        console.log("started createEntity", entityId);
     };
 
     // Called by BlazeCanvasComponent
     BC.createComponent = (entityId, componentId, componentType, args) => {
+        console.log("createComponent", entityId, componentId, componentType, args);
 
         const entity = window.BC.entities[entityId];
 
@@ -46,15 +47,48 @@
         const component = entity.addComponent(componentType, args)
         BC.components[componentId] = component;
 
+        if (component == null) {
+            console.error("createComponent failed:", scriptComponentType);
+        }
+
         component._entity = entity;
         component._session = entity._session;
+    };
 
-        console.log("started createComponent", componentId);
+    // Called by BlazeCanvasComponent
+    BC.createScriptComponent = (entityId, componentId, scriptComponentType, args) => {
+        console.log("createScriptComponent", entityId, componentId, scriptComponentType, args);
+
+        const entity = window.BC.entities[entityId];
+
+        args = BC.instanceArgsObjectsRecursive(entity._session, args);
+
+        if (!entity._scriptIsInit) {
+            entity.addComponent('script');
+            entity._scriptIsInit = true;
+        }
+        entity.script.create(scriptComponentType);
+
+        const component = entity.script[scriptComponentType]
+        BC.components[componentId] = component;
+
+        if (component == null) {
+            console.error("createScriptComponent failed:", scriptComponentType);
+        }
+
+        Object.keys(args).forEach((key) => {
+            let val = args[key];
+            component[key] = val;
+        });
+
+        component._entity = entity;
+        component._session = entity._session;
     };
 
     // Called by BlazeCanvasComponent
     BC.loadAssetAsync = async (sessionId, assetId, assetType, file) => {
-        console.log("loadAssetAsync started", assetId, assetType, file);
+        console.log("loadAssetAsync", sessionId, assetId, assetType, file);
+
         const session = window.BC.sessions[sessionId];
 
         file = BC.instanceArgsObjectsRecursive(session, file);
@@ -72,11 +106,11 @@
             });
             loadedAsset = await loadPromise;
 
-            console.log("loadAssetAsync success:", loadedAsset, assetId, assetType, file);
+            console.log("loadAssetAsync success:", loadedAsset, sessionId, assetId, assetType, file);
         }
         catch (error) {
             errorResult = JSON.stringify(error);
-            console.log("loadAssetAsync error:", error, loadedAsset, assetId, assetType, file);
+            console.log("loadAssetAsync error:", error, loadedAsset, sessionId, assetId, assetType, file);
         }
 
         return errorResult;
@@ -218,6 +252,10 @@
             app.start();
 
             window.addEventListener("resize", this.onResize.bind(this));
+
+            for (const scriptInitializer of BC.scriptInitializers) {
+                scriptInitializer();
+            }
         }
 
         onResize() {

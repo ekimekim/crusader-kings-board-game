@@ -1,6 +1,6 @@
 ﻿namespace BlazeCanvas.Components
 {
-    public class ModelComponent : Component
+    public class ModelComponent : BasicComponent
     {
         public override string JsClassName() => "model";
         public static object GetBoxArgs() => new { type = "box" };

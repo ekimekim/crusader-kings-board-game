@@ -1,6 +1,6 @@
 ﻿namespace BlazeCanvas.Components
 {
-    public class LightComponent : Component
+    public class LightComponent : BasicComponent
     {
         public override string JsClassName() => "light";
         public static object GetLightArgs() => new

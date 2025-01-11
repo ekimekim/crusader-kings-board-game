@@ -2,6 +2,14 @@
 
 namespace BlazeCanvas
 {
+    public abstract class BasicComponent : Component
+    {
+    }
+
+    public abstract class ScriptComponent : Component
+    {
+    }
+
     public abstract class Component
     {
         public Session Session { get; protected set; }
@@ -34,7 +42,7 @@ namespace BlazeCanvas
             await Session.Js.InvokeVoidAsync("window.BC.invokeComponentMethod3", this.Id, method, arg0, arg1, arg2);
         }
 
-        public static async Task<TComponent> CreateComponent<TComponent>(Entity entity, object args = null) where TComponent : Component
+        public static async Task<TComponent> CreateComponent<TComponent>(Entity entity, object args = null) where TComponent : BasicComponent
         {
             var component = Activator.CreateInstance<TComponent>();
             component.Id = entity.Session.IdGenerator.NextId();
@@ -42,6 +50,18 @@ namespace BlazeCanvas
             component.Session = entity.Session;
 
             await entity.Session.Js.InvokeVoidAsync("window.BC.createComponent", entity.Id, component.Id, component.JsClassName(), args);
+
+            return component;
+        }
+
+        public static async Task<TComponent> CreateScriptComponent<TComponent>(Entity entity, object args = null) where TComponent : ScriptComponent
+        {
+            var component = Activator.CreateInstance<TComponent>();
+            component.Id = entity.Session.IdGenerator.NextId();
+            component.Entity = entity;
+            component.Session = entity.Session;
+
+            await entity.Session.Js.InvokeVoidAsync("window.BC.createScriptComponent", entity.Id, component.Id, component.JsClassName(), args);
 
             return component;
         }

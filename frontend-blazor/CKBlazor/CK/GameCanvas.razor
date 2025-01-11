@@ -26,6 +26,7 @@
         var camera = await Component.CreateComponent<CameraComponent>(cameraEntity, CameraComponent.GetArgs());
         await cameraEntity.Translate(0, 10, 15);
         await cameraEntity.SetLocalEulerAngles(-45, 0, 0);
+        var cameraControls = await Component.CreateScriptComponent<TopDownCameraControls>(cameraEntity, new { });
 
         var lightEntity = await Entity.CreateEntity(session);
         var light = await Component.CreateComponent<LightComponent>(lightEntity, LightComponent.GetLightArgs());
