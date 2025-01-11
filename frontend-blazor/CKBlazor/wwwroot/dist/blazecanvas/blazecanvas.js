@@ -83,6 +83,8 @@
 
         component._entity = entity;
         component._session = entity._session;
+
+        component.initialize(); // This isn't called automatically?
     };
 
     // Called by BlazeCanvasComponent
@@ -237,6 +239,7 @@
             const app = new pc.Application(canvas, {
                 mouse: new pc.Mouse(canvas),
                 touch: new pc.TouchDevice(canvas),
+                keyboard: new pc.Keyboard(window),
             });
             this.canvas = canvas;
             this.app = app;
