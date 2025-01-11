@@ -24,6 +24,10 @@
 
         Console.WriteLine("Load Finish");
 
+        var cameraEntity = await Entity.CreateEntity(session);
+        var camera = await Component.CreateComponent<CameraComponent>(cameraEntity, CameraComponent.GetArgs());
+        cameraEntity.Translate(0, 0, 5);
+
         var lightEntity = await Entity.CreateEntity(session);
         var light = await Component.CreateComponent<LightComponent>(lightEntity, LightComponent.GetLightArgs());
 

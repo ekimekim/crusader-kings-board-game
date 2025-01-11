@@ -28,6 +28,11 @@ namespace BlazeCanvas
             await InvokeJSAsync3("translate", x, y, z);
         }
 
+        public async Task SetPosition(float x, float y, float z)
+        {
+            await InvokeJSAsync3("setPosition", x, y, z);
+        }
+
         public async Task SetLocalEulerAngles(float x, float y, float z)
         {
             await InvokeJSAsync3("setLocalEulerAngles", x, y, z);

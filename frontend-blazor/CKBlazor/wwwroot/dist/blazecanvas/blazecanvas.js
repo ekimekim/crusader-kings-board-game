@@ -216,13 +216,6 @@
             app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
             app.setCanvasResolution(pc.RESOLUTION_AUTO);
             app.start();
-
-            const camera = new pc.Entity();
-            camera.addComponent('camera', {
-                clearColor: new pc.Color(0.1, 0.1, 0.1)
-            });
-            camera.translate(0, 0, 5);
-            app.root.addChild(camera);
         }
 
         startRotating(entityId) {
