@@ -216,6 +216,12 @@
             app.setCanvasFillMode(pc.FILLMODE_FILL_WINDOW);
             app.setCanvasResolution(pc.RESOLUTION_AUTO);
             app.start();
+
+            window.addEventListener("resize", this.onResize.bind(this));
+        }
+
+        onResize() {
+            this.app.resizeCanvas();
         }
 
         startRotating(entityId) {

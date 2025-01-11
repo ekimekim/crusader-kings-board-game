@@ -61,9 +61,9 @@ a, .btn-link {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
 
 .loading-progress {
     position: relative;
@@ -73,19 +73,19 @@ a, .btn-link {
     margin: 20vh auto 1rem auto;
 }
 
-    .loading-progress circle {
-        fill: none;
-        stroke: #e0e0e0;
-        stroke-width: 0.6rem;
-        transform-origin: 50% 50%;
-        transform: rotate(-90deg);
-    }
+.loading-progress circle {
+    fill: none;
+    stroke: #e0e0e0;
+    stroke-width: 0.6rem;
+    transform-origin: 50% 50%;
+    transform: rotate(-90deg);
+}
 
-        .loading-progress circle:last-child {
-            stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
-            transition: stroke-dasharray 0.05s ease-in-out;
-        }
+.loading-progress circle:last-child {
+    stroke: #1b6ec2;
+    stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    transition: stroke-dasharray 0.05s ease-in-out;
+}
 
 .loading-progress-text {
     position: absolute;
@@ -94,9 +94,16 @@ a, .btn-link {
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
+.loading-progress-text:after {
+    content: var(--blazor-load-percentage-text, "Loading");
+}
+
+article {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
 
 code {
     color: #c02d76;
@@ -109,6 +116,13 @@ code {
     margin: 1vh;
 }
 
-canvas {
-   
+.blazecanvas-fill-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
+
+canvas {
+}
+

@@ -1,5 +1,4 @@
-﻿@using CKBlazor.BlazeCanvas
-@using CKBlazor.CK
+﻿@using CKBlazor.CK
 @using CKBlazor.CK.Data
 @using Microsoft.JSInterop
 @inject GameService GameService
@@ -39,9 +38,10 @@
 
 @if (GameService.TerritoryPositions != null && GameState != null)
 {
-    <div>SOME GAME </div>
-    <BlazeCanvasComponent UniqueId="Test">
-    </BlazeCanvasComponent>
+    <div class="blazecanvas-fill-container">
+        <GameCanvas UniqueId="Test">
+        </GameCanvas>
+    </div>
     <div class="game-hud">
         @foreach (var player in GameState.players)
         {

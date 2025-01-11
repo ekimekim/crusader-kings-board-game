@@ -38,6 +38,8 @@ namespace BlazeCanvas
             await InvokeJSAsync3("setLocalEulerAngles", x, y, z);
         }
 
+        #region InvokeJS
+
         async Task InvokeJSAsync(string method)
         {
             await Session.Js.InvokeVoidAsync("window.BC.invokeEntityMethod", this.Id, method);
@@ -57,5 +59,7 @@ namespace BlazeCanvas
         {
             await Session.Js.InvokeVoidAsync("window.BC.invokeEntityMethod3", this.Id, method, arg0, arg1, arg2);
         }
+
+        #endregion
     }
 }

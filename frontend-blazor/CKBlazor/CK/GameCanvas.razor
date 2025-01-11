@@ -2,8 +2,6 @@
 @using global::BlazeCanvas.Components
 @inject IJSRuntime JS
 
-<h3>BlazeCanvasComponent</h3>
-
 <canvas id="@($"{UniqueId}-canvas")"></canvas>
 
 @code {
@@ -26,7 +24,8 @@
 
         var cameraEntity = await Entity.CreateEntity(session);
         var camera = await Component.CreateComponent<CameraComponent>(cameraEntity, CameraComponent.GetArgs());
-        cameraEntity.Translate(0, 0, 5);
+        await cameraEntity.Translate(0, 10, 15);
+        await cameraEntity.SetLocalEulerAngles(-45, 0, 0);
 
         var lightEntity = await Entity.CreateEntity(session);
         var light = await Component.CreateComponent<LightComponent>(lightEntity, LightComponent.GetLightArgs());
@@ -38,9 +37,5 @@
 
         var mapEntity = await Entity.CreateEntity(session);
         var mapModel = await Component.CreateComponent<ModelComponent>(mapEntity, ModelComponent.GetAssetArgs(mapAsset));
-
-        await session.StartRotating(boxEntity);
-        await session.StartRotating(mapEntity);
-
     }
 }
