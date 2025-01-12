@@ -53,6 +53,10 @@
 
         component._entity = entity;
         component._session = entity._session;
+
+        if (componentType == "camera") {
+            entity._session.cameras.active = component;
+        }
     };
 
     // Called by BlazeCanvasComponent
@@ -228,6 +232,7 @@
             this.csRef = csRef;
             this.canvas = null;
             this.app = null;
+            this.cameras = { active: null };
         }
 
         helloworld() {

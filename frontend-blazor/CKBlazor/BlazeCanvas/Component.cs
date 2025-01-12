@@ -22,22 +22,22 @@ namespace BlazeCanvas
             // Please use CreateSession()
         }
 
-        async Task InvokeJSAsync(string method)
+        protected async Task InvokeJSAsync(string method)
         {
             await Session.Js.InvokeVoidAsync("window.BC.invokeComponentMethod", this.Id, method);
         }
 
-        async Task InvokeJSAsync1(string method, object arg0)
+        protected async Task InvokeJSAsync1(string method, object arg0)
         {
             await Session.Js.InvokeVoidAsync("window.BC.invokeComponentMethod1", this.Id, method, arg0);
         }
 
-        async Task InvokeJSAsync2(string method, object arg0, object arg1)
+        protected async Task InvokeJSAsync2(string method, object arg0, object arg1)
         {
             await Session.Js.InvokeVoidAsync("window.BC.invokeComponentMethod2", this.Id, method, arg0, arg1);
         }
 
-        async Task InvokeJSAsync3(string method, object arg0, object arg1, object arg2)
+        protected async Task InvokeJSAsync3(string method, object arg0, object arg1, object arg2)
         {
             await Session.Js.InvokeVoidAsync("window.BC.invokeComponentMethod3", this.Id, method, arg0, arg1, arg2);
         }

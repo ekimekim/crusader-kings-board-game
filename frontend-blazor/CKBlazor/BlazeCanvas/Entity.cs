@@ -38,6 +38,11 @@ namespace BlazeCanvas
             await InvokeJSAsync3("setLocalEulerAngles", x, y, z);
         }
 
+        public async Task SetLocalEulerScale(float x, float y, float z)
+        {
+            await InvokeJSAsync3("setLocalScale", x, y, z);
+        }
+
         #region InvokeJS
 
         async Task InvokeJSAsync(string method)
