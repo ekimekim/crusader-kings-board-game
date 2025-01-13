@@ -27,7 +27,7 @@ BC.scriptInitializers.push(() => {
 
         this._session.cameras.active.worldToScreen(worldPos, screenPos);
 
-        const style = `position:absolute; left:${screenPos.x}px; top:${screenPos.y}px; background-color:white`;
+        const style = `position:absolute; left:${screenPos.x}px; top:${screenPos.y}px;`;
         this.div.style = style;
     };
 });

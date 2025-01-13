@@ -1,0 +1,7 @@
+Gradient
+plain
+2B2A2D
+
+Stroke
+F8E71C
+20
