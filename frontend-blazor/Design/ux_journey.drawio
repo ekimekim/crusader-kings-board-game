@@ -1,0 +1,135 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36" version="26.0.6">
+  <diagram name="Page-1" id="CPyO2J-Or-aoK6NbdKyt">
+    <mxGraphModel dx="2074" dy="649" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="BA2nQDK6V9rRJEq2bD1Q-1" value="&lt;b&gt;Goal&lt;/b&gt;&lt;div&gt;Show every user interaction possible&lt;/div&gt;&lt;div&gt;List the required info / best info for that user&lt;/div&gt;&lt;div&gt;Include undos, loses and bosses&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="-280" y="80" width="400" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-5" value="&lt;div&gt;&lt;b&gt;Draw best cards at start of era&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What cards are required?&lt;/div&gt;&lt;div&gt;(Warning, must have 1 crusade card)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What do cards do?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What cards should I choose?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(Mobilize and then invade requires two cards, and&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Tax generates money)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;What is board state?&lt;/div&gt;&lt;div&gt;What is developments state?&lt;/div&gt;&lt;div&gt;What is turn order?&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="200" y="200" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-7" value="&lt;div&gt;&lt;b&gt;Choose best card at start of round&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Will bad stuff apply?&lt;/div&gt;&lt;div&gt;Who to?&lt;/div&gt;&lt;div&gt;(&quot;other player&quot;)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What does the card do?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What is board state?&lt;/div&gt;&lt;div&gt;What is developments state?&lt;/div&gt;&lt;div&gt;What is turn order?&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="920" y="200" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-8" value="&lt;div&gt;&lt;b&gt;Know the risk of roll&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Chance of success?&lt;/div&gt;&lt;div&gt;Chance of crit success?&lt;/div&gt;&lt;div&gt;Chance of crit fail?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="920" y="920" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-9" value="&lt;div&gt;&lt;b&gt;How good is character?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Traits?&lt;/div&gt;&lt;div&gt;Married?&lt;/div&gt;&lt;div&gt;Are traits are on self or spouse?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;(Green Green) +Oo+&amp;nbsp; (Red)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="680" y="920" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-10" value="&lt;div&gt;&lt;b&gt;How good is player?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Score&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Territories&lt;/span&gt;&lt;/div&gt;&lt;div&gt;Money&lt;/div&gt;&lt;div&gt;Upkeep cost&lt;/div&gt;&lt;div&gt;Age Tokens&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Innovation count&lt;/div&gt;&lt;div&gt;Innovation token&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Castle count&lt;/div&gt;&lt;div&gt;Castle token&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#fff2cc;strokeColor=#d6b656;" parent="1" vertex="1">
+          <mxGeometry x="440" y="920" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-11" value="&lt;div&gt;&lt;b&gt;Pick best marriage partner&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Who needs spouse?&lt;/div&gt;&lt;div&gt;Which board will the go to?&lt;/div&gt;&lt;div&gt;What pacts will form?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Does the other character have good traits?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What gender is the other character?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Can I offer a deal?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="440" y="200" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-12" value="&lt;div&gt;&lt;b&gt;Choosing best duke setup&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Who is already a duke?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Where can I make a duke?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How good is territory? Will it be better with duke?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What are risks of allocating a duke?&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="680" y="200" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-14" value="&lt;div&gt;&lt;b&gt;Choose best card mode&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What do the two card modes do?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="200" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-15" value="&lt;div&gt;&lt;b&gt;Is build good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Where can I build?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much does it cost?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much does it improve a territory?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What is chance of building?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Will I get the build token?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="560" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-16" value="&lt;div&gt;&lt;b&gt;Is develop good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Where can I build?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much does it cost?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How many develop cards exist?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What is benifiet?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What is chance of building?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Will I get the innovation token?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1400" y="560" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-17" value="&lt;div&gt;&lt;b&gt;Is plot good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Who can I target?&lt;/div&gt;&lt;div&gt;What is the chance per target?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much does it cost?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Casius Belli&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Unrest&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Murder/Divorce&lt;/div&gt;&lt;div&gt;Will it trigger inheritance?&lt;/div&gt;&lt;div&gt;Will it cause a succession crisis?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1640" y="560" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-18" value="&lt;div&gt;&lt;b&gt;Is overthrow good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Who can I target?&lt;/div&gt;&lt;div&gt;What is the chance per target?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1880" y="560" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-19" value="&lt;div&gt;&lt;b&gt;Is mobilize good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Where can I mobilize?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much is upkeep?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much does it improve a territory?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="920" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-21" value="&lt;div&gt;&lt;b&gt;Is invade good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Where can I invade?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much is upkeep?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;How much does it improve a territory?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Chance of success?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1400" y="920" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-22" value="&lt;b&gt;Multi target actions / undo&lt;/b&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Allow user to queue up actions and total cost then confirm at end&lt;/div&gt;&lt;div&gt;This applies to plot, mobilize, invade, develop, dukes, draws, card picks&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;" parent="1" vertex="1">
+          <mxGeometry x="-40" y="920" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-23" value="&lt;div&gt;&lt;b&gt;Is tax good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;How much does it improve a territory?&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1640" y="920" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-24" value="&lt;div&gt;&lt;b&gt;Is crusade good?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Chance of success?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Who might die?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Who will succeed on death?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Will it cause a succession crisis?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What is possible reward?&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="1880" y="920" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-26" value="Choose cards" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="200" y="440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-27" value="Choose pair" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="440" y="440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-28" value="Choose duke set" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="680" y="440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="-Sif5f4_tev5Va0UiIEw-29" target="-Sif5f4_tev5Va0UiIEw-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-29" value="Choose card from hand" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="920" y="440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="-Sif5f4_tev5Va0UiIEw-14" target="-Sif5f4_tev5Va0UiIEw-15" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1260" y="360" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-33" value="Choose card mode&lt;div&gt;And target&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="800" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-34" value="Choose card mode&lt;div&gt;And targets&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1400" y="800" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-35" value="Choose card mode&lt;div&gt;And targets&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1640" y="800" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-36" value="Choose card mode&lt;div&gt;And target&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1880" y="800" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-37" value="Choose card mode&lt;div&gt;And targets&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1160" y="1160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-38" value="Choose card mode&lt;div&gt;And targets&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1400" y="1160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-39" value="Confirm" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1640" y="1160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="-Sif5f4_tev5Va0UiIEw-40" value="Choose card &lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;target&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
+          <mxGeometry x="1880" y="1160" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-1" value="&lt;div&gt;&lt;b&gt;Is action possible?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Some actions are impossible due to lack of figures&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="200" y="920" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-2" value="&lt;div&gt;&lt;b&gt;Want to join game&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Where can I enter code?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What am I playing as?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Can I see who is in the game alerady?&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="200" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-3" value="&lt;div&gt;Join Game&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="-40" y="440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-4" value="&lt;div&gt;&lt;b&gt;Want to start game&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;What scenarios can I use?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Is it public?&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Do I have an easy way of inviting people to my game&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="200" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-5" value="&lt;div&gt;Start Game&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-6" value="&lt;div&gt;&lt;b&gt;What is board state?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Allow user to pause active action at any time to investigate the board&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Then resume their action&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="920" width="200" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-7" value="&lt;div&gt;&lt;b&gt;Change audio / graphic settings&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Change volume of different kinds of sound&lt;/div&gt;&lt;div&gt;(Music, SFX, Effect)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Adjust graphics (if possible)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="200" width="200" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-8" value="&lt;div&gt;Edit settings&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="1640" y="440" width="200" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="pD6HYV04YFKCR3_5Nbk8-9" value="&lt;div&gt;&lt;b&gt;What is crusade progress?&lt;/b&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Who has shields?&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="-280" y="1160" width="200" height="200" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
