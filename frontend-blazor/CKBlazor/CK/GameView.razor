@@ -2,6 +2,7 @@
 @using CKBlazor.CK.Components
 @using CKBlazor.CK.Data
 @using CKBlazor.CK.Icons
+@using CKBlazor.CK.Screens
 @using Microsoft.JSInterop
 @inject GameService GameService
 @inject Services.TimerService TimerService
@@ -11,97 +12,72 @@
 
     protected override async Task OnInitializedAsync()
     {
-        await GameService.InitAssets();
-        GameState = await GameService.JoinGameAsync("your_game_id", "your_client_guid");
-        TimerService.OnTimerElapsed += async () => 
-        {
-            GameState = await GameService.GetGameState(); 
-        };
+        GameService.OnScreenStackChange += OnScreenStackChange;
     }
 
-    string GetRandomModel()
+    void OnScreenStackChange(GameService gameService)
     {
-        var models = new string[]
-        {
-            "#castle-model",
-            "#knight-model",
-            "#soldier-model",
-        };
-        return models[Random.Shared.Next() % models.Length];
+        StateHasChanged();
     }
 
-    string GetRandomAframeRotation()
-    {
-        var yRot = Random.Shared.Next(360);
-        return $"0 {yRot} 0";
-    }
 }
 
-
-@if (GameService.TerritoryPositions != null && GameState != null)
+@foreach (var screen in GameService.ScreenStack)
 {
-    <div class="blazecanvas-fill-container">
-        <GameCanvas UniqueId="Test">
-        </GameCanvas>
-        <div id="pin-01" style="position:absolute;left:-10000px;top:-1000px;">
-            <BannerIcon></BannerIcon>
-            <CastleIcon></CastleIcon>
-            <MobilizedIcon></MobilizedIcon>
-        </div>
-    </div>
-    <div class="game-hud">
-        <div>
-            <table>
-                <tr>
-                    @foreach (var player in GameState.players)
-                    {
-                        <tr style="background-color:@player.color;">
-                            <div>@player.user.name</div>
-                        </tr>
-                    }
-                </tr>
-            </table>
-        </div>
-        <div class="dynasty-slim" style="color:white;fill:white;position:absolute;left:0;bottom:0;top:auto;right:auto;min-height:14rem">
-            <table>
-                <tr>
-                    <td>
-                        <PortraitSlim></PortraitSlim>
-                    </td>
-                    <td>
-                    </td>
-                    <td style="font-size:1rem">
-                        AGE: 3<br>
-                        COIN: 5<br>
-                    </td>
-                    <td>
-                        <table>
-                            <tr>
-                                <td><NavyIcon></NavyIcon></td>
-                                <td><PlateArmorIcon></PlateArmorIcon></td>
-                                <td><LongBowsIcon></LongBowsIcon></td>
-                                <td><PhysicianIcon></PhysicianIcon></td>
-                                <td><ArchbishopIcon></ArchbishopIcon></td>
-                                <td><SpymasterIcon></SpymasterIcon></td>
-                            </tr>
-                            <tr>
-                                <td><PortraitThumb></PortraitThumb></td>
-                                <td><PortraitThumb></PortraitThumb></td>
-                                <td><PortraitThumb></PortraitThumb></td>
-                                <td><PortraitThumb></PortraitThumb></td>
-                                <td><PortraitThumb></PortraitThumb></td>
-                                <td><PortraitThumb></PortraitThumb></td>
-                            </tr>
-                        </table>
-                    </td>
+    @switch (screen.ScreenType)
+    {
+        case Screens.ScreenType.DebugMessage:
+            <div @key=screen> @((screen as DebugMessageScreen).Message) </div>
+            break;
+        case Screens.ScreenType.GameCanvas:
+            <div @key=screen class="blazecanvas-fill-container">
+                <GameCanvas UniqueId="Test">
+                </GameCanvas>
+                <div id="pin-01" style="position:absolute;left:-10000px;top:-1000px;">
+                    <BannerIcon></BannerIcon>
+                    <CastleIcon></CastleIcon>
+                    <MobilizedIcon></MobilizedIcon>
+                </div>
+            </div>
+            break;
+        case Screens.ScreenType.GameHud:
+            <div @key=screen class="dynasty-slim" style="color:white;fill:white;position:absolute;left:0;bottom:0;top:auto;right:auto;min-height:14rem">
+                <table>
+                    <tr>
+                        <td>
+                            <PortraitSlim></PortraitSlim>
+                        </td>
+                        <td>
+                        </td>
+                        <td style="font-size:1rem">
+                            AGE: 3<br>
+                            COIN: 5<br>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td><NavyIcon></NavyIcon></td>
+                                    <td><PlateArmorIcon></PlateArmorIcon></td>
+                                    <td><LongBowsIcon></LongBowsIcon></td>
+                                    <td><PhysicianIcon></PhysicianIcon></td>
+                                    <td><ArchbishopIcon></ArchbishopIcon></td>
+                                    <td><SpymasterIcon></SpymasterIcon></td>
+                                </tr>
+                                <tr>
+                                    <td><PortraitThumb></PortraitThumb></td>
+                                    <td><PortraitThumb></PortraitThumb></td>
+                                    <td><PortraitThumb></PortraitThumb></td>
+                                    <td><PortraitThumb></PortraitThumb></td>
+                                    <td><PortraitThumb></PortraitThumb></td>
+                                    <td><PortraitThumb></PortraitThumb></td>
+                                </tr>
+                            </table>
+                        </td>
 
-                </tr>
-            </table>
-        </div>
-    </div> 
-}
-else
-{
-    <h3>Loading</h3>
+                    </tr>
+                </table>
+            </div>
+            break;
+    }
 }
 
