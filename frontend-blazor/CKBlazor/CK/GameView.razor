@@ -33,11 +33,15 @@
             <div @key=screen class="blazecanvas-fill-container">
                 <GameCanvas Screen=@(screen as GameCanvasScreen)>
                 </GameCanvas>
-                <div id="pin-01" style="position:absolute;left:-10000px;top:-1000px;">
-                    <BannerIcon></BannerIcon>
-                    <CastleIcon></CastleIcon>
-                    <MobilizedIcon></MobilizedIcon>
-                </div>
+
+                @foreach (var (regionName, regionPos) in GameService.Assets.TerritoryPositions)
+                {
+                    <div id="@($"{regionName}-pin")" style="position:absolute;left:-10000px;top:-1000px;">
+                        <BannerIcon></BannerIcon>
+                        <CastleIcon></CastleIcon>
+                        <MobilizedIcon></MobilizedIcon>
+                    </div>
+                }
             </div>
             break;
         case Screens.ScreenType.GameHud:

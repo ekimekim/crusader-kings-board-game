@@ -45,7 +45,7 @@ namespace CKBlazor.CK
 
             ScreenStack.Clear();
 
-            ScreenStack.Add(new GameCanvasScreen(_js));
+            ScreenStack.Add(new GameCanvasScreen(this, _js));
             ScreenStack.Add(new GameHUDScreen());
 
             if (OnScreenStackChange != null)

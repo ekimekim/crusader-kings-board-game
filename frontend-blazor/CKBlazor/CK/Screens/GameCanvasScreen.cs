@@ -7,13 +7,15 @@ namespace CKBlazor.CK.Screens
 {
     public class GameCanvasScreen : IScreen
     {
+        private GameService _gs;
         private IJSRuntime _js;
 
         public ScreenType ScreenType => ScreenType.GameCanvas;
         public string UniqueId { get; set; }
 
-        public GameCanvasScreen(IJSRuntime js)
+        public GameCanvasScreen(GameService gs, IJSRuntime js)
         {
+            _gs = gs;
             _js = js;
         }
         public async Task OnCanvasCreated() => await LoadDemoScene();
@@ -29,6 +31,8 @@ namespace CKBlazor.CK.Screens
 
             await session.Start();
 
+            var mapAsset = await Asset.LoadAsset(session, Asset.AssetType.container, "assets/board.glb");
+
             Console.WriteLine("Load Finish");
 
             var cameraEntity = await Entity.CreateEntity(session);
@@ -40,16 +44,18 @@ namespace CKBlazor.CK.Screens
             var lightEntity = await Entity.CreateEntity(session);
             var light = await Component.CreateComponent<LightComponent>(lightEntity, LightComponent.GetLightArgs());
 
-            var boxEntity = await Entity.CreateEntity(session);
-            await boxEntity.SetLocalEulerScale(0.4f, 0.4f, 0.4f);
-            var boxModel = await Component.CreateComponent<ModelComponent>(boxEntity, ModelComponent.GetBoxArgs());
-            var boxPin = await Component.CreateScriptComponent<DivPinComponent>(boxEntity, DivPinComponent.GetArgs());
-            await boxPin.SetPinId("pin-01");
-
-            var mapAsset = await Asset.LoadAsset(session, Asset.AssetType.container, "assets/board.glb");
-
             var mapEntity = await Entity.CreateEntity(session);
             var mapModel = await Component.CreateComponent<ModelComponent>(mapEntity, ModelComponent.GetAssetArgs(mapAsset));
+
+            foreach (var (regionName, regionPos) in _gs.Assets.TerritoryPositions)
+            {
+                var boxEntity = await Entity.CreateEntity(session);
+                await boxEntity.SetLocalEulerScale(0.4f, 0.4f, 0.4f);
+                await boxEntity.SetPosition(regionPos.x, regionPos.y, regionPos.z);
+                var boxModel = await Component.CreateComponent<ModelComponent>(boxEntity, ModelComponent.GetBoxArgs());
+                var boxPin = await Component.CreateScriptComponent<DivPinComponent>(boxEntity, DivPinComponent.GetArgs());
+                await boxPin.SetPinId($"{regionName}-pin");
+            }
         }
     }
 }
