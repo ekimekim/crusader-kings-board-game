@@ -31,7 +31,7 @@ namespace CKBlazor.CK.Screens
 
             await session.Start();
 
-            var mapAsset = await Asset.LoadAsset(session, Asset.AssetType.container, "assets/board.glb");
+            var mapAsset = await Asset.LoadAsset(session, Asset.AssetType.container, "assets/board2.glb");
 
             Console.WriteLine("Load Finish");
 
@@ -42,7 +42,7 @@ namespace CKBlazor.CK.Screens
             var cameraControls = await Component.CreateScriptComponent<TopDownCameraControls>(cameraEntity, new { });
 
             var lightEntity = await Entity.CreateEntity(session);
-            var light = await Component.CreateComponent<LightComponent>(lightEntity, LightComponent.GetLightArgs());
+            var light = await Component.CreateComponent<LightComponent>(lightEntity, LightComponent.GetLightArgs(0.7f));
 
             var mapEntity = await Entity.CreateEntity(session);
             var mapModel = await Component.CreateComponent<ModelComponent>(mapEntity, ModelComponent.GetAssetArgs(mapAsset));
