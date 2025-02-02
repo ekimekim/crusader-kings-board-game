@@ -3,6 +3,7 @@ using CKBlazor.CK.Assets;
 using CKBlazor.CK.Data;
 using CKBlazor.CK.Networking;
 using CKBlazor.CK.Screens;
+using Microsoft.JSInterop;
 
 namespace CKBlazor.CK
 {
@@ -14,11 +15,13 @@ namespace CKBlazor.CK
         public GameState? LastGameState { get; }
 
         HttpClient _httpClient;
+        IJSRuntime _js;
         NetworkingLayer _networkingLayer;
 
-        public GameService(HttpClient httpClient)
+        public GameService(IJSRuntime js, HttpClient httpClient)
         {
             _httpClient = httpClient;
+            _js = js;
 
             Assets = new AssetsLayer(httpClient);
             ScreenStack = new List<IScreen>();
@@ -42,7 +45,7 @@ namespace CKBlazor.CK
 
             ScreenStack.Clear();
 
-            ScreenStack.Add(new GameCanvasScreen());
+            ScreenStack.Add(new GameCanvasScreen(_js));
             ScreenStack.Add(new GameHUDScreen());
 
             if (OnScreenStackChange != null)

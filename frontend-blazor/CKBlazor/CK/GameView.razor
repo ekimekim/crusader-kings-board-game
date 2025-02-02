@@ -31,7 +31,7 @@
             break;
         case Screens.ScreenType.GameCanvas:
             <div @key=screen class="blazecanvas-fill-container">
-                <GameCanvas UniqueId="Test">
+                <GameCanvas Screen=@(screen as GameCanvasScreen)>
                 </GameCanvas>
                 <div id="pin-01" style="position:absolute;left:-10000px;top:-1000px;">
                     <BannerIcon></BannerIcon>
