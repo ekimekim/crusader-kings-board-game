@@ -157,3 +157,55 @@ body {
     height: 10rem;
     background-color: #222222;
 }
+
+.dynasty-ordered-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    background-color: steelblue;
+    display: flex;
+}
+
+.dynasty-ordered {
+    background-color: black;
+}
+
+.border-white {
+    border: 2px solid white;
+}
+
+.timeline-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    background-color: steelblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.timeline {
+    background-color: black;
+}
+
+.incomplete-action {
+    background-color: black;
+}
+
+.hand-container {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    left: auto;
+    background-color: steelblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.hand-card {
+    background-color: saddlebrown;
+}

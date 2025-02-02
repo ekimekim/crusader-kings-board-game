@@ -41,42 +41,7 @@
             </div>
             break;
         case Screens.ScreenType.GameHud:
-            <div @key=screen class="dynasty-slim" style="color:white;fill:white;position:absolute;left:0;bottom:0;top:auto;right:auto;min-height:14rem">
-                <table>
-                    <tr>
-                        <td>
-                            <PortraitSlim></PortraitSlim>
-                        </td>
-                        <td>
-                        </td>
-                        <td style="font-size:1rem">
-                            AGE: 3<br>
-                            COIN: 5<br>
-                        </td>
-                        <td>
-                            <table>
-                                <tr>
-                                    <td><NavyIcon></NavyIcon></td>
-                                    <td><PlateArmorIcon></PlateArmorIcon></td>
-                                    <td><LongBowsIcon></LongBowsIcon></td>
-                                    <td><PhysicianIcon></PhysicianIcon></td>
-                                    <td><ArchbishopIcon></ArchbishopIcon></td>
-                                    <td><SpymasterIcon></SpymasterIcon></td>
-                                </tr>
-                                <tr>
-                                    <td><PortraitThumb></PortraitThumb></td>
-                                    <td><PortraitThumb></PortraitThumb></td>
-                                    <td><PortraitThumb></PortraitThumb></td>
-                                    <td><PortraitThumb></PortraitThumb></td>
-                                    <td><PortraitThumb></PortraitThumb></td>
-                                    <td><PortraitThumb></PortraitThumb></td>
-                                </tr>
-                            </table>
-                        </td>
-
-                    </tr>
-                </table>
-            </div>
+            <GameHUD @key=screen></GameHUD>
             break;
     }
 }

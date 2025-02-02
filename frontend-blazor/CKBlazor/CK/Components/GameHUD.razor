@@ -1,0 +1,28 @@
+﻿@using CKBlazor.CK.Data
+@code {
+
+}
+
+<div class="dynasty-ordered-container">
+    <DynastyOrdered></DynastyOrdered>
+    <DynastyOrdered></DynastyOrdered>
+    <DynastyOrdered></DynastyOrdered>
+    <DynastyOrdered></DynastyOrdered>
+</div>
+
+<div class="timeline-container">
+    <Timeline></Timeline>
+    <IncompleteAction></IncompleteAction>
+</div>
+
+<DynastySlim></DynastySlim>
+
+
+<div class="hand-container">
+    <HandCard CardType="@CardType.BuildDevelop"></HandCard>
+    <HandCard CardType="@CardType.BuildDevelop"></HandCard>
+    <HandCard CardType="@CardType.Crusade"></HandCard>
+    <HandCard CardType="@CardType.Tax"></HandCard>
+    <HandCard CardType="@CardType.MobilizeInvade"></HandCard>
+    <HandCard CardType="@CardType.MobilizeInvade"></HandCard>
+</div>
