@@ -12,17 +12,8 @@ namespace LineGenerator
     {
         public static Dictionary<string, Bitmap> GetTerritoryTextures(Bitmap img)
         {
-            var dupes = TerritoryColors.ColorsHex
-                    .GroupBy(p => p.Value)
-                    .Select(p => p.ToList())
-                    .Where(g => g.Count > 1)
-                    .ToList();
-
-
-            var colorsToTerritories = TerritoryColors.ColorsHex.Where(pair => pair.Value != "AAAAAAAAAAAAAA")
-                                                .ToDictionary(pair => System.Drawing.ColorTranslator.FromHtml(pair.Value), pair => pair.Key);
-            var territoryTextures = TerritoryColors.ColorsHex.Where(pair => pair.Value != "AAAAAAAAAAAAAA")
-                                                .ToDictionary(pair => pair.Key, pair => new Bitmap(img.Width, img.Height));
+            var colorsToTerritories = TerritoryColors.ColorsHex.ToDictionary(pair => ColorTranslator.FromHtml(pair.Value), pair => pair.Key);
+            var territoryTextures = TerritoryColors.ColorsHex.ToDictionary(pair => pair.Key, pair => new Bitmap(img.Width, img.Height));
 
             for (int x = 0; x < img.Width; x++)
             {
