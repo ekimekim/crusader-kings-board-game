@@ -11,7 +11,7 @@ namespace CKBlazor.CK
     {
         public AssetsLayer Assets { get; }
         public List<IScreen> ScreenStack { get; }
-        public Action<GameService> OnScreenStackChange;
+        public Action<GameService>? OnScreenStackChange;
         public GameState? LastGameState { get; }
 
         HttpClient _httpClient;
@@ -20,6 +20,7 @@ namespace CKBlazor.CK
 
         public GameService(IJSRuntime js, HttpClient httpClient)
         {
+            Console.WriteLine("GameService()");
             _httpClient = httpClient;
             _js = js;
 
@@ -32,24 +33,58 @@ namespace CKBlazor.CK
 
         async void StartupAsync()
         {
-            ScreenStack.Add(new DebugMessageScreen("Loading assets"));
-            if(OnScreenStackChange != null)
-                OnScreenStackChange(this);
+            Console.WriteLine("StartupAsync");
+            PushScreens(new DebugMessageScreen("Loading assets"));
 
+            Console.WriteLine("await Assets.InitAssets");
             await Assets.InitAssets();
+            await WaitNSeconds(5);
 
-            ScreenStack.Add(new DebugMessageScreen("Loaded assets"));
-            if (OnScreenStackChange != null)
-                OnScreenStackChange(this);
+            ClearAllScreens();
+            PushScreens(new DebugMessageScreen("Loaded assets"));
+            Console.WriteLine("WaitNSeconds");
+            await WaitNSeconds(5);
 
+            ClearAllScreens();
 
-            ScreenStack.Clear();
+            PushScreens(new GameCanvasScreen(this, _js), new GameHUDScreen());
+        }
 
-            ScreenStack.Add(new GameCanvasScreen(this, _js));
-            ScreenStack.Add(new GameHUDScreen());
+        public void PushScreens(params IScreen[] screens)
+        {
+            foreach(var screen in screens)
+            {
+                ScreenStack.Add(screen);
+            }
+            OnScreenStackChange?.Invoke(this);
+        }
 
-            if (OnScreenStackChange != null)
-                OnScreenStackChange(this);
+        public void PopScreens(params IScreen[] screens)
+        {
+            foreach (var screen in screens)
+            {
+                ScreenStack.Remove(screen);
+                screen.Dispose();
+            }
+            OnScreenStackChange?.Invoke(this);
+        }
+
+        public void ClearAllScreens()
+        {
+            var removeOrder = ScreenStack.Reverse<IScreen>().ToArray();
+            foreach (var screen in removeOrder)
+            {
+                ScreenStack.Remove(screen);
+                screen.Dispose();
+            }
+            OnScreenStackChange?.Invoke(this);
+        }
+
+        Task WaitNSeconds(int seconds)
+        {
+            var t = new Task(() => Thread.Sleep(seconds * 1000));
+            t.Start();
+            return t;
         }
     }
 }

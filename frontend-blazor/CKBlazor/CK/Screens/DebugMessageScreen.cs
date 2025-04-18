@@ -9,5 +9,9 @@
         {
             Message = message;
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

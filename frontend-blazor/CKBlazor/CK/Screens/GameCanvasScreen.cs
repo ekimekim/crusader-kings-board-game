@@ -57,5 +57,9 @@ namespace CKBlazor.CK.Screens
                 await boxPin.SetPinId($"{regionName}-pin");
             }
         }
+
+        public void Dispose()
+        {
+        }
     }
 }

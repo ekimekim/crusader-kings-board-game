@@ -1,8 +1,8 @@
 ﻿namespace CKBlazor.CK.Screens
 {
-    public class GameHUDScreen : IScreen
+    public class MainMenuScreen : IScreen
     {
-        public ScreenType ScreenType => ScreenType.GameHud;
+        public ScreenType ScreenType => ScreenType.MainMenu;
 
         public void Dispose()
         {

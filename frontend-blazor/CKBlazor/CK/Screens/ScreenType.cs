@@ -6,5 +6,6 @@
         GameCanvas,
         GameHud,
         DebugMessage,
+        MainMenu,
     }
 }

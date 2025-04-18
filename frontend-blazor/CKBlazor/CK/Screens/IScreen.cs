@@ -1,6 +1,6 @@
 ﻿namespace CKBlazor.CK.Screens
 {
-    public interface IScreen
+    public interface IScreen : IDisposable
     {
         public ScreenType ScreenType { get; }
     }
